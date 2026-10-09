@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.tmp_*
+.deploy_meta.json
+# 生成物不入库
+catalog.json
+tmdb_cache.json

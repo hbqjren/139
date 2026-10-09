@@ -1,0 +1,15 @@
+name = "139"
+main = "worker/cloud139.js"
+compatibility_date = "2025-01-01"
+
+# 一键部署按钮会自动创建下面的 KV 并绑定; 手动部署时先执行:
+#   npx wrangler kv namespace create CACHE
+# 然后把返回的 id 填到下面
+[[kv_namespaces]]
+binding = "CACHE"
+id = "46b321f3880c4fd4be519c0e580aa951"
+
+# 定时预热: 滚动补目录缓存, 让"点进文件夹"是热路径。
+# 不配这段的话 worker 里的 scheduled() 永远不会被调用。
+[triggers]
+crons = ["*/30 * * * *"]
